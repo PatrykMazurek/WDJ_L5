@@ -2,21 +2,28 @@ package com.wdj;
 
 import java.util.Objects;
 
-public class Osoba {
+public class Person {
 
     final public int nr = 10;
+    private static int nextId = 1;
     private Integer id;
     private String name;
     protected String lastName;
 
-    public Osoba(){
-
+    public Person(){
+        id = getNestId();
+        name = "";
+        lastName = "";
     }
 
-    public Osoba(int i, String name, String lastName){
-        id = i;
+    public Person(String name, String lastName){
+        id = getNestId() ;
         this.name = name;
         this.lastName = lastName;
+    }
+
+    private int getNestId(){
+        return nextId++;
     }
 
     public Integer getId() {
@@ -35,6 +42,10 @@ public class Osoba {
         this.name = name;
     }
 
+    public String showInfo(){
+        return "Imię " + name + " Nazwisko " + lastName +" ";
+    }
+
     @Override
     public String toString() {
         return "id=" + id +
@@ -46,8 +57,8 @@ public class Osoba {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Osoba osoba = (Osoba) o;
-        return Objects.equals(id, osoba.id) && Objects.equals(name, osoba.name) && Objects.equals(lastName, osoba.lastName);
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) && Objects.equals(name, person.name) && Objects.equals(lastName, person.lastName);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class HelpMethods {
         }
     }
 
-    public void writeToFile(Osoba o){
+    public void writeToFile(Person o){
         File file = new File("Osoba.txt");
         try {
             FileWriter fw = new FileWriter(file);
