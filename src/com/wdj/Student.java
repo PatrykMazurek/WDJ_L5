@@ -1,6 +1,8 @@
 package com.wdj;
 
-public class Student extends Person {
+import java.util.Random;
+
+public class Student extends Person implements Eat {
 
     private String uniwersityName;
     private int year;
@@ -29,6 +31,17 @@ public class Student extends Person {
 
     @Override
     public String showInfo() {
-        return super.showInfo() + " Nazwa uniwersytetu: " + uniwersityName;
+        return " Nazwa uniwersytetu: " + uniwersityName;
+    }
+
+    @Override
+    public Object convert(Object obj) {
+        return null;
+    }
+
+    @Override
+    public boolean goToLaunch() {
+        Random rand = new Random();
+        return rand.nextBoolean();
     }
 }

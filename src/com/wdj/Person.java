@@ -2,7 +2,7 @@ package com.wdj;
 
 import java.util.Objects;
 
-public class Person {
+public abstract class Person {
 
     final public int nr = 10;
     private static int nextId = 1;
@@ -42,9 +42,9 @@ public class Person {
         this.name = name;
     }
 
-    public String showInfo(){
-        return "Imię " + name + " Nazwisko " + lastName +" ";
-    }
+    public abstract String showInfo();
+
+    public abstract Object convert(Object obj);
 
     @Override
     public String toString() {

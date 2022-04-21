@@ -1,17 +1,18 @@
 package com.wdj;
 
+import java.awt.geom.Arc2D;
 import java.time.LocalDateTime;
 import java.util.Random;
 
-public class Employee extends Person {
+public class Employee extends Person implements GoToWork, Comparable<Employee> {
 
     private double zarobki;
     private int bonus;
     private LocalDateTime startPracy;
 
-    public Employee(){
+    public Employee() {
         super();
-        zarobki = 0;
+        zarobki = 3000;
         bonus = 0;
         startPracy = LocalDateTime.now();
     }
@@ -21,6 +22,21 @@ public class Employee extends Person {
         zarobki = z;
         bonus = b;
         startPracy = s;
+    }
+
+    @Override
+    public String showInfo() {
+        return "Pracownik zarabiający " + zarobki ;
+    }
+
+    @Override
+    public Employee convert(Object obj) {
+        if (obj instanceof Employee){
+            return (Employee) obj;
+        }else if(obj instanceof Student){
+            return new Employee();
+        }
+        return null;
     }
 
     public void setZarobki(double zarobki) {
@@ -51,7 +67,7 @@ public class Employee extends Person {
         for (String ts: values) {
             System.out.println(ts);
         }
-        return super.showInfo() + s;
+        return s;
     }
 
     public final Boolean test(){
@@ -66,5 +82,31 @@ public class Employee extends Person {
                 ", bonus=" + bonus +
                 ", startPracy=" + startPracy +
                 '}';
+    }
+
+    @Override
+    public void goTo(String name) {
+
+    }
+
+    @Override
+    public void goTo2(String name) {
+
+    }
+
+
+    @Override
+    public String typeOfTransport() {
+        return null;
+    }
+
+    @Override
+    public boolean goToLaunch() {
+        return false;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return Double.compare(o.getZarobki(), this.zarobki);
     }
 }

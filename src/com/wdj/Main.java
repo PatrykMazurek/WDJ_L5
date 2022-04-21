@@ -1,5 +1,6 @@
 package com.wdj;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class Main {
@@ -9,12 +10,14 @@ public class Main {
 
         System.out.println("Witaj w Javie");
         // definicja nowej klasy
-        Person o1 = new Person();
+        Person o1 = new Student("UP", 2);
         o1.setId(1);
         o1.setName("Patryk");
         o1.lastName = "Mazurek";
 
-        Person o2 = new Person( "Patryk", "Mazurek");
+
+        // nie jest możliwe utworzenie obirktu typu Person Klasa abstrakcyjna
+//        Person o2 = new Person( "Patryk", "Mazurek");
 
         Employee p1 = new Employee();
         System.out.println(p1.showInfo("teskt", "tekst 1", "tekst 1"
@@ -25,6 +28,10 @@ public class Main {
         Person o3 = p1;
         Manager m = new Manager();
 
+        System.out.println("obiekt o1 " + o1.getClass());
+        Employee e2 = new Employee("Patryk", "Mazurek", 2000.0, 0, LocalDateTime.now());
+        System.out.println(p1.compareTo(e2));
+
         // definicja tabeli obiektów typu Person
         Person[] listaO = new Person[4];
         listaO[0] = o1;
@@ -32,11 +39,12 @@ public class Main {
         listaO[2] = new Student("UP", 2);
         listaO[3] = m;
 
+
         for (int i = 0; i < listaO.length; i++){
             System.out.println(listaO[i].showInfo());
         }
 
-        Person[] tabPerson = {o1, o2};
+        Person[] tabPerson = {o1 };
         System.out.println(tabPerson.length);
         tabPerson = Arrays.copyOf(tabPerson, tabPerson.length+2);
         System.out.println(tabPerson.length);
