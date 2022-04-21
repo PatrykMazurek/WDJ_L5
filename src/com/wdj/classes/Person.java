@@ -1,4 +1,4 @@
-package com.wdj;
+package com.wdj.classes;
 
 import java.util.Objects;
 
@@ -8,7 +8,7 @@ public abstract class Person {
     private static int nextId = 1;
     private Integer id;
     private String name;
-    protected String lastName;
+    public String lastName;
 
     public Person(){
         id = getNestId();

@@ -1,7 +1,10 @@
-package com.wdj;
+package com.wdj.classes;
 
-import java.awt.geom.Arc2D;
+import com.wdj.interfaces.GoToWork;
+import com.wdj.interfaces.Help;
+
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 
 public class Employee extends Person implements GoToWork, Comparable<Employee> {
@@ -108,5 +111,31 @@ public class Employee extends Person implements GoToWork, Comparable<Employee> {
     @Override
     public int compareTo(Employee o) {
         return Double.compare(o.getZarobki(), this.zarobki);
+    }
+
+    public class HelpEmployee implements Help{
+
+        @Override
+        public void getHelpInfo(String topic) {
+            // zgłoszenie potrzeby pomocy dla pracownika
+
+            System.out.println("Pracownik " + getName() + " potrzebuje pomocy w " + topic);
+        }
+
+        @Override
+        public double getHelpMony() {
+            // porównanie daty i obliczenie ile miesięcy mineło między obydwami datatami
+            Long monthBettwen = ChronoUnit.MONTHS.between(startPracy, LocalDateTime.now());
+            if (monthBettwen < 18){
+                System.out.println("Pomoc w wysokości 10% podstawowje wypłaty");
+                return zarobki * 0.1;
+            } else if (monthBettwen > 19 && monthBettwen < 30){
+                System.out.println("Pomoc w wysokości 30% podstawowje wypłaty");
+                return zarobki * 0.3;
+            } else{
+                System.out.println("Pomoc w wysokości 50% podstawowje wypłaty");
+                return zarobki * 0.5;
+            }
+        }
     }
 }

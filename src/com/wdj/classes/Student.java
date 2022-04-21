@@ -1,4 +1,6 @@
-package com.wdj;
+package com.wdj.classes;
+
+import com.wdj.interfaces.Eat;
 
 import java.util.Random;
 
@@ -36,6 +38,7 @@ public class Student extends Person implements Eat {
 
     @Override
     public Object convert(Object obj) {
+
         return null;
     }
 
@@ -43,5 +46,40 @@ public class Student extends Person implements Eat {
     public boolean goToLaunch() {
         Random rand = new Random();
         return rand.nextBoolean();
+    }
+
+    public class HelpStudent {
+
+        private int number;
+
+        public HelpStudent(){
+            System.out.println();
+        }
+
+        public void getHelpInfo(String subject){
+            System.out.println("Student " + getName() + " potrzebuje pomocy z " +
+                    "" + subject );
+        }
+
+        public int getHelpMony(){
+            switch (year){
+                case 1:
+                    return 1000;
+                case 2:
+                    return 1100;
+                case 3:
+                    return 1350;
+                case 4:
+                    return 1500;
+                default:
+                    return 0;
+            }
+        }
+
+        // tak głęboko nie jset wymagane
+
+//        public class HelpStudent2{
+//
+//        }
     }
 }

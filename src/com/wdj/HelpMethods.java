@@ -1,5 +1,7 @@
 package com.wdj;
 
+import com.wdj.classes.Person;
+
 import java.io.*;
 
 public class HelpMethods {

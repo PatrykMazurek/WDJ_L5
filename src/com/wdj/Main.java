@@ -1,5 +1,10 @@
 package com.wdj;
 
+import com.wdj.classes.Employee;
+import com.wdj.classes.Manager;
+import com.wdj.classes.Person;
+import com.wdj.classes.Student;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -10,10 +15,15 @@ public class Main {
 
         System.out.println("Witaj w Javie");
         // definicja nowej klasy
-        Person o1 = new Student("UP", 2);
+        Student o1 = new Student("UP", 2);
         o1.setId(1);
         o1.setName("Patryk");
         o1.lastName = "Mazurek";
+        // tworzenie klasy wewnętrznej
+        Student.HelpStudent o1h = o1.new HelpStudent();
+        o1h.getHelpInfo("Java");
+        o1h.getHelpMony();
+
 
 
         // nie jest możliwe utworzenie obirktu typu Person Klasa abstrakcyjna

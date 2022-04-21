@@ -1,4 +1,4 @@
-package com.wdj;
+package com.wdj.interfaces;
 
 public interface Transport {
 

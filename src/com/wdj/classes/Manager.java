@@ -1,4 +1,4 @@
-package com.wdj;
+package com.wdj.classes;
 
 public class Manager extends Employee {
 
