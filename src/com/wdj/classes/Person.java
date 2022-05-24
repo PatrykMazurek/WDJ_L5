@@ -1,6 +1,8 @@
 package com.wdj.classes;
 
+import java.util.Comparator;
 import java.util.Objects;
+import java.util.PriorityQueue;
 
 public abstract class Person {
 
@@ -9,17 +11,21 @@ public abstract class Person {
     private Integer id;
     private String name;
     public String lastName;
+    // dodanie do obiektu Person koloejki priorytetowej, którą będą dziedziczyćwszystkie obiekty.
+    public PriorityQueue<Task> tasks;
 
     public Person(){
         id = getNestId();
         name = "";
         lastName = "";
+        tasks = new PriorityQueue<>();
     }
 
     public Person(String name, String lastName){
         id = getNestId() ;
         this.name = name;
         this.lastName = lastName;
+        tasks = new PriorityQueue<>();
     }
 
     private int getNestId(){

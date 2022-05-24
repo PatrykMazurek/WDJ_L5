@@ -78,14 +78,14 @@ public class Employee extends Person implements GoToWork, Comparable<Employee> {
         return rand.nextBoolean();
     }
 
-    @Override
-    public String toString() {
-        return "Pracownik{" +
-                "zarobki=" + zarobki +
-                ", bonus=" + bonus +
-                ", startPracy=" + startPracy +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Pracownik{" +
+//                "zarobki=" + zarobki +
+//                ", bonus=" + bonus +
+//                ", startPracy=" + startPracy +
+//                '}';
+//    }
 
     @Override
     public void goTo(String name) {

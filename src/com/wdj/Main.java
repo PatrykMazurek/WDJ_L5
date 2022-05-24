@@ -1,120 +1,70 @@
 package com.wdj;
 
-import com.wdj.classes.Employee;
-import com.wdj.classes.Manager;
-import com.wdj.classes.Person;
-import com.wdj.classes.Student;
+import com.wdj.classes.*;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
 
-        System.out.println("Witaj w Javie");
-        // definicja nowej klasy
-        Student o1 = new Student("UP", 2);
-        o1.setId(1);
-        o1.setName("Patryk");
-        o1.lastName = "Mazurek";
-        // tworzenie klasy wewnętrznej
-        Student.HelpStudent o1h = o1.new HelpStudent();
-        o1h.getHelpInfo("Java");
-        o1h.getHelpMony();
+        // inizjalizacja listy osób
+        List<Person> personList = initListPerson();
 
+        // wywołanie rozwiązań do zadania 8
+//        Exercise_8 e7 = new Exercise_8();
+//        Map<String, List<Person>> tempMap =  e7.point_c(personList);
+//        e7.point_d(tempMap);
 
+        // wywołanie zadania 9 i 10
 
-        // nie jest możliwe utworzenie obirktu typu Person Klasa abstrakcyjna
-//        Person o2 = new Person( "Patryk", "Mazurek");
+        // wywołanie zadania 11
+        BoardGame game = new BoardGame();
+        List<BoardGame> boardGames = game.initListGame();
 
-        Employee p1 = new Employee();
-        System.out.println(p1.showInfo("teskt", "tekst 1", "tekst 1"
-        ,"tekst 1","tekst 1","tekst 1" ));
-        p1.setName("Jan");
-        p1.lastName = "Kowalski";
-        p1.showInfo("Dowolny wiadomość");
-        Person o3 = p1;
-        Manager m = new Manager();
+        Exercise_11 e11 = new Exercise_11();
+        e11.point_a(boardGames);
+//        new MainWindow();
 
-        System.out.println("obiekt o1 " + o1.getClass());
-        Employee e2 = new Employee("Patryk", "Mazurek", 2000.0, 0, LocalDateTime.now());
-        System.out.println(p1.compareTo(e2));
-
-        // definicja tabeli obiektów typu Person
-        Person[] listaO = new Person[4];
-        listaO[0] = o1;
-        listaO[1] = p1;
-        listaO[2] = new Student("UP", 2);
-        listaO[3] = m;
-
-
-        for (int i = 0; i < listaO.length; i++){
-            System.out.println(listaO[i].showInfo());
-        }
-
-        Person[] tabPerson = {o1 };
-        System.out.println(tabPerson.length);
-        tabPerson = Arrays.copyOf(tabPerson, tabPerson.length+2);
-        System.out.println(tabPerson.length);
-
-
-
-        //        System.out.println(Arrays.deepToString(tabOsoba));
-//        System.out.println(Arrays.deepToString(new int[][]{tabInt2}));
+//        BoardGame boardGame = new BoardGame();
 //
-//        Random rand = new Random();
-//        for (int i = 0; i<tabInt2.length; i++){
-//            tabInt2[i] = rand.nextInt();
-//            System.out.println(tabInt2[i] );
-//        }
+//        List<BoardGame> boardGames = boardGame.initListGame();
 //
-//        Arrays.sort(tabInt2);
-//        System.out.println();
+//        Stream<BoardGame> filtrGame = boardGames.stream();
 //
-//        for (int n: tabInt2){
-//            System.out.println(n);
-//        }
+//        filtrGame.filter(g -> g.price.compareTo(new BigDecimal(50)) > 0 &&
+//                        g.price.compareTo(new BigDecimal(100)) < 0 )
+//                .collect(Collectors.toList());
 //
-//        int[][] tab2size = {
-//                { 34, 45, 56, 3},
-//                { 24, 45, 23, 4}
+//        filtrGame.map(g -> g.name + " " + g.year).forEach(System.out::println);
+//
+//          Interfejsy funkcyjne
+//        MyIntercaeFunct number =(m, n) -> {
+//            if (n > 0){
+//                return m + n +1;
+//            }
+//            return m + n;
 //        };
+//
+//        MyIntercaeFunct number2 = new MyIntercaeFunct() {
+//            @Override
+//            public int addToNumber(int n1, int n2) {
+//                return n1 + n2;
+//            }
+//        };
+//        System.out.println(number.addToNumber(12, 14));
+//
+//        Function<String, Integer> numb = n -> Integer.parseInt(n);
+//        int x = numb.apply("10");
+//        System.out.println(x);
 
-//        int[][] tab2size2 = new int[10][];
-//
-//        tab2size2[0] = new int[3];
-//        tab2size2[1] = new int[4];
-//        tab2size2[2] = new int[1];
-//
-//        String tekst = "dowolny tekst na zajęciach Javy tekst";
-////        String tekst = " ";
-//        System.out.println("długość tekstu " + tekst.length());
-//        if(tekst.trim().isEmpty()){
-//            System.out.println("tekst jest pusty");
-//        }else{
-//            System.out.println("tekst nie jest pusty");
-//            char[] tempchar = tekst.toCharArray();
-//            String[] tempTekst = tekst.split(" ");
-//            System.out.println(Arrays.deepToString(tempTekst));
-//            // wyciągniecie tego samego tekstu
-//            for (String s : tempTekst){
-//                if (s.equals("tekst")){
-//                    System.out.println(s);
-//                }
-//            }
-//
-//            System.out.println( tekst.substring(0, tekst.indexOf(" ")) );
-//            System.out.println(tekst.replace("dowolny", "aktualny"));
-//
-//            LocalDateTime localDateTime = LocalDateTime.of(2021, 2,4,0,0);
-//            GregorianCalendar date = new GregorianCalendar(1902,4,14);
-//            System.out.println(localDateTime);
-//            if (LocalDateTime.now().isBefore(localDateTime)) {
-//                System.out.println("Dowolny teskt");
-//            }
-//        }
+
+
+
+
 
 //        Scanner scan = new Scanner(System.in);
 //        Osoba o3 = new Osoba();
@@ -136,4 +86,38 @@ public class Main {
 //        }
 
     }
+
+    static private List<Person> initListPerson(){
+        List<Person> personList = new ArrayList<>();
+
+        // stworzenie listy osób
+        Student s1 = new Student("UP", 2);
+        s1.setName("Robert");
+        s1.lastName = "Nowak";
+        personList.add(s1);
+        Employee e1 = new Employee("Jan", "Nowak", 3000.0, 0, LocalDateTime.now().minusYears(2));
+        personList.add(e1);
+        Employee e2 = new Employee("Ewa", "Nowak", 34000.0, 5, LocalDateTime.now().minusYears(3));
+        personList.add(e2);
+        Employee e3 = new Employee("Marek", "Kowalski", 33000.0, 5, LocalDateTime.now().minusYears(3));
+        personList.add(e3);
+        Student s2 = new Student("UP", 1);
+        s2.setName("Kamil");
+        s2.lastName = "Wójcik";
+        personList.add(s2);
+        Student s3 = new Student("UP", 2);
+        s3.setName("Karolina");
+        s3.lastName = "Lewandowska";
+        personList.add(s3);
+        Manager m1 = new Manager();
+        m1.setName("Ewa");
+        m1.lastName = "Woźniak";
+        m1.setZarobki(5500);
+        m1.setStartPracy(LocalDateTime.now().minusYears(7));
+        m1.setBonus(10);
+        personList.add(m1);
+
+        return personList;
+    }
+
 }
