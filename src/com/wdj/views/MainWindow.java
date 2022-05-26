@@ -59,11 +59,12 @@ public class MainWindow {
             }
         });
         frame.setLayout(new GridLayout(5,2));
-        frame.add(student());
-        frame.add(panel);
-        frame.add(spinnerPanel);
-        frame.add(saveButton);
-        frame.add(dateSpiner);
+        frame.add(new StudentView().view());
+        frame.add(new EmployeeView().view());
+//        frame.add(panel);
+//        frame.add(spinnerPanel);
+//        frame.add(saveButton);
+//        frame.add(dateSpiner);
 
         frame.pack();
 
@@ -72,23 +73,4 @@ public class MainWindow {
 
     }
 
-
-    JPanel student(){
-        JPanel studentPanel = new JPanel();
-        JPanel unName = new JPanel();
-        JLabel nameLabel = new JLabel("Nazwa uniwersytetu");
-        unName.add(nameLabel);
-        JTextField nameField = new JTextField(20);
-        unName.add(nameField);
-        studentPanel.add(unName);
-
-        JPanel yearName = new JPanel();
-        JLabel yearLabel = new JLabel("Nazwa uniwersytetu");
-        yearName.add(yearLabel);
-        JSpinner yearField = new JSpinner(new SpinnerNumberModel(1,1,5,1));
-        yearName.add(yearField);
-        studentPanel.add(yearName);
-
-        return studentPanel;
-    }
 }

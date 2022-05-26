@@ -1,6 +1,7 @@
 package com.wdj;
 
 import com.wdj.classes.*;
+import com.wdj.views.MainWindow;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -22,12 +23,12 @@ public class Main {
         // wywołanie zadania 9 i 10
 
         // wywołanie zadania 11
-        BoardGame game = new BoardGame();
-        List<BoardGame> boardGames = game.initListGame();
-
-        Exercise_11 e11 = new Exercise_11();
-        e11.point_a(boardGames);
-//        new MainWindow();
+//        BoardGame game = new BoardGame();
+//        List<BoardGame> boardGames = game.initListGame();
+//
+//        Exercise_11 e11 = new Exercise_11();
+//        e11.point_a(boardGames);
+        new MainWindow();
 
 //        BoardGame boardGame = new BoardGame();
 //
