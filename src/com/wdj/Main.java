@@ -2,6 +2,7 @@ package com.wdj;
 
 import com.wdj.classes.*;
 import com.wdj.views.MainWindow;
+import com.wdj.views.TableView;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -28,8 +29,8 @@ public class Main {
 //
 //        Exercise_11 e11 = new Exercise_11();
 //        e11.point_a(boardGames);
-        new MainWindow();
-
+    //        new MainWindow();
+            new TableView();
 //        BoardGame boardGame = new BoardGame();
 //
 //        List<BoardGame> boardGames = boardGame.initListGame();
